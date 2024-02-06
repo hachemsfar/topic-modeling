@@ -35,7 +35,7 @@ def main():
 
         df=loaded_topic_model.get_topic_info()
         # Show topics for new data
-        st.write(df[df['Topic']==new_topics[0]][['Topic','Name','Custom Name','Representation','keyBert','Llama2','MMR']])
+        st.write(df[df['Topic']==new_topics[0]][['Topic','Name','CustomName','Representation','KeyBERT','Llama2','MMR']])
 
 if __name__ == "__main__":
     main()
