@@ -35,7 +35,7 @@ def main():
 
         df=loaded_topic_model.get_topic_info()
         # Show topics for new data
-        print(df[df['Topic']==new_topics].tolist()[0])
+        print(df[df['Topic']==new_topics['value'].tolist()[0]])
 
 if __name__ == "__main__":
     main()
