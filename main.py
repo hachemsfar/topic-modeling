@@ -30,14 +30,12 @@ def main():
         # Transform the single block of text using the loaded topic model
         new_topics, new_probs = loaded_topic_model.transform([new_abstracts], new_embeddings)
 
-        st.write("New Topics:", new_topics)
-        st.write("New Topics:", type(new_topics))
-        st.write("Topic Probabilities:", new_probs)
-        st.write("Topic Probabilities:", new_probs.tolist())
+        st.write("New Topics:", new_topics[0])
         st.write("Topic Probabilities:", new_probs[0])
 
         df=loaded_topic_model.get_topic_info()
-
+        # Show topics for new data
+        print(df[df['Topic']==new_topics[0]])
 
 if __name__ == "__main__":
     main()
