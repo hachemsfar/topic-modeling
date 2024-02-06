@@ -1,0 +1,57 @@
+<!-- myapp/templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic Modeling Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Topic Modeling Dashboard</h1>
+        <form method="post" action="{% url 'home' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="textArea" class="form-label">Enter a single block of text:</label>
+                <textarea class="form-control" id="textArea" name="text_area" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+		
+	{% if new_topics %}
+		<h2 class="mt-5">Results</h2>
+		<p>New Topics: {{ new_topics }}</p>
+		<p>Topic Probabilities: {{ new_probs }}</p>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Topic</th>
+					<th scope="col">Name</th>
+					<th scope="col">Custom Name</th>
+					<th scope="col">Representation</th>
+					<th scope="col">KeyBERT</th>
+					<th scope="col">Llama2</th>
+					<th scope="col">MMR</th>
+				</tr>
+			</thead>
+			<tbody>
+					<tr>
+						<td>{{ selected_data.Topic }}</td>
+						<td>{{ selected_data.Name }}</td>
+						<td>{{ selected_data.CustomName }}</td>
+						<td>{{ selected_data.Representation }}</td>
+						<td>{{ selected_data.KeyBERT  }}</td>
+						<td>{{  selected_data.Llama2  }}</td>
+						<td>{{ selected_data.MMR }}</td>
+					</tr>
+			</tbody>
+		</table>
+	{% endif %}
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
