@@ -31,7 +31,10 @@ def main():
         new_topics, new_probs = loaded_topic_model.transform([new_abstracts], new_embeddings)
 
         st.write("New Topics:", new_topics)
+        st.write("New Topics:", type(new_topics))
         st.write("Topic Probabilities:", new_probs)
+        st.write("Topic Probabilities:", new_probs.tolist())
+        st.write("Topic Probabilities:", new_probs[0])
 
         df=loaded_topic_model.get_topic_info()
 
