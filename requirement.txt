@@ -1,0 +1,4 @@
+transformers==4.30.1
+sentence-transformers
+bertopic
+streamlit
